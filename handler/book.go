@@ -52,3 +52,13 @@ func SaveBook(c *gin.Context) {
 		c.AbortWithError(http.StatusBadRequest, err)
 	}
 }
+
+func ShowSaveBook(c *gin.Context) {
+	utility.Render(
+		c,
+		gin.H{
+			"title": "SaveBook",
+		},
+		"add_book.html",
+	)
+}

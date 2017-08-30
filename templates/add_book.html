@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+{{ template "header.html" .}}
+
+	<body class="container">
+		<!--Embed the menu.html template at this location-->
+		{{ template "menu.html" . }}
+		<form action="/book" method="post">
+			<div class="form-group">
+				<label for="formGroupTitleInput">Title</label>
+				<input type="text" class="form-control" style="width: 50%" id="formGroupTitleInput" placeholder="Enter title" name="title" required>
+			</div>
+			<div class="form-group">
+				<label or="formGroupAuthorInput">Author</label>
+				<input type="text" class="form-control" style="width: 50%" id="formGroupAuthorInput" placeholder="Enter author" name="author" required>
+			</div>
+			 <div class="form-group">
+                 <label for="name">Introduction</label>
+                 <textarea class="form-control" rows="5" placeholder="Enter Introduction" name="introduction" ></textarea>
+             </div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+<body>
+
+</body>
+</html>
+

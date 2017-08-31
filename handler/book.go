@@ -62,3 +62,19 @@ func ShowSaveBook(c *gin.Context) {
 		"add_book.html",
 	)
 }
+
+func EditBook(c *gin.Context) {
+	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
+		book := models.GetBookByID(bookID)
+		utility.Render(
+			c,
+			gin.H{
+				"title":   "Book",
+				"payload": book,
+			},
+			"edit_book.html",
+		)
+	} else {
+		c.AbortWithError(http.StatusBadRequest, err)
+	}
+}

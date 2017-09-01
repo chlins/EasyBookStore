@@ -5,13 +5,16 @@
 	<body class="container">
 		<!--Embed the menu.html template at this location-->
 		{{ template "menu.html" . }}
-
+{{if .delete  }}
+		<label style="color: green">删除成功</label>	
+		
+{{else}}
 		<label style="color: green">保存成功</label>
 
 		<h1>{{.payload.Title}}</h1>
 
 		<p>{{.payload.Author}}</p>
-
+{{end}}
 		{{ template "footer.html" .}}
 	</body>
 </html>

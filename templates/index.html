@@ -11,7 +11,7 @@
 				<h2>{{.Title}}</h2>
 			</a>
 			<p>by {{.Author}}</p>
-			<a href="/book/{{.ID}}/edit"><button class="btn btn-warning btn-sm">编辑</button></a>&nbsp;&nbsp;<button class="btn btn-danger btn-sm">删除</button>
+			<a href="/book/{{.ID}}/edit"><button class="btn btn-warning btn-sm">编辑</button></a>&nbsp;&nbsp;<a href="/delete/{{.ID}}"><button class="btn btn-danger btn-sm">删除</button></a>
 		{{end}}
 
 		<br/>

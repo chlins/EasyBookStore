@@ -31,3 +31,19 @@ func SaveBook(book Book) Book {
 	utility.DB().Create(&book)
 	return book
 }
+
+//EditBook edit book by id
+func EditBook(id int, newBook Book) Book {
+	var book Book
+	utility.DB().First(&book, id)
+	utility.DB().Model(&book).Update(&newBook)
+	return book
+}
+
+//DeleteBook delete book
+func DeleteBook(id int) bool {
+	var book Book
+	utility.DB().First(&book, id)
+	utility.DB().Delete(&book)
+	return true
+}

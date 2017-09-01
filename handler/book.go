@@ -78,3 +78,41 @@ func EditBook(c *gin.Context) {
 		c.AbortWithError(http.StatusBadRequest, err)
 	}
 }
+
+func EditSaveBook(c *gin.Context) {
+	var book models.Book
+	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
+		if err := c.Bind(&book); err == nil {
+			book := models.EditBook(bookID, book)
+			utility.Render(
+				c,
+				gin.H{
+					"title":   "Save",
+					"payload": book,
+				},
+				"success.html",
+			)
+		} else {
+			c.AbortWithError(http.StatusBadRequest, err)
+		}
+	}
+}
+
+func DeleteBook(c *gin.Context) {
+	var book models.Book
+	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
+		if err := c.Bind(&book); err == nil {
+			res := models.DeleteBook(bookID)
+			utility.Render(
+				c,
+				gin.H{
+					"title":  "Delete",
+					"delete": res,
+				},
+				"success.html",
+			)
+		} else {
+			c.AbortWithError(http.StatusBadRequest, err)
+		}
+	}
+}

@@ -5,7 +5,7 @@
 	<body class="container">
 		<!--Embed the menu.html template at this location-->
 		{{ template "menu.html" . }}
-		<form action="/book" method="post">
+		<form action="/editbook/{{.payload.ID}}" method="post">
 			<div class="form-group">
 				<label for="formGroupTitleInput">Title</label>
 				<input type="text" class="form-control" style="width: 50%" id="formGroupTitleInput" placeholder="Enter title" name="title" required value="{{.payload.Title}}">

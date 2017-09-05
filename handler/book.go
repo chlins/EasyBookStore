@@ -8,6 +8,7 @@ import (
 	"strconv"
 )
 
+//ShowIndexPage show index
 func ShowIndexPage(c *gin.Context) {
 	books := models.GetAllBooks()
 	utility.Render(
@@ -20,6 +21,7 @@ func ShowIndexPage(c *gin.Context) {
 	)
 }
 
+//GetBook get book
 func GetBook(c *gin.Context) {
 	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
 		book := models.GetBookByID(bookID)
@@ -36,6 +38,7 @@ func GetBook(c *gin.Context) {
 	}
 }
 
+//SaveBook save book
 func SaveBook(c *gin.Context) {
 	var book models.Book
 	if err := c.Bind(&book); err == nil {
@@ -53,6 +56,7 @@ func SaveBook(c *gin.Context) {
 	}
 }
 
+//ShowSaveBook show save book
 func ShowSaveBook(c *gin.Context) {
 	utility.Render(
 		c,
@@ -63,6 +67,7 @@ func ShowSaveBook(c *gin.Context) {
 	)
 }
 
+//EditBook edit book
 func EditBook(c *gin.Context) {
 	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
 		book := models.GetBookByID(bookID)
@@ -79,6 +84,7 @@ func EditBook(c *gin.Context) {
 	}
 }
 
+//EditSaveBook edit save book
 func EditSaveBook(c *gin.Context) {
 	var book models.Book
 	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {
@@ -98,6 +104,7 @@ func EditSaveBook(c *gin.Context) {
 	}
 }
 
+//DeleteBook delete book
 func DeleteBook(c *gin.Context) {
 	var book models.Book
 	if bookID, err := strconv.Atoi(c.Param("book_id")); err == nil {

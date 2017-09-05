@@ -5,6 +5,7 @@ import (
 	"golang-web-testcase/handler"
 )
 
+//Load router load
 func Load() *gin.Engine {
 	router := gin.Default()
 	router.GET("/", handler.ShowIndexPage)
